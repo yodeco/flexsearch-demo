@@ -23,10 +23,12 @@
 
     function show_results(){
 
+        const MAX_AUTOCOMPLETE_RESULTS = 5;
+
         var value = this.value;
         var results = index.search(value, 25);
         var entry, childs = suggestions.childNodes;
-        var i = 0, len = results.length;
+        var i = 0, len = results.length > MAX_AUTOCOMPLETE_RESULTS ? MAX_AUTOCOMPLETE_RESULTS : results.length;
 
         for(; i < len; i++){
 
