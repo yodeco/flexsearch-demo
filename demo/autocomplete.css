@@ -10,36 +10,54 @@
     - grey: #747474;
     - lighterGrey: #959595;
     - lighterGrey: #7c7c7c;
+    - lightestGrey: #d3d3d3;
+    - lightestGrey: #f7f7f7;
     - black: #505050;
     - black: #323232;
     - blue: #2680EB;
+    - blue: #378ef0;
 */
 
+/* Related to autocomplete */
+
 .autocomplete {
-    box-sizing: border-box;
-    padding: 16px 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-bottom: 6px;
+    padding: 16px 20px 0;
     overflow: hidden;
     font-family: 'adobe-clean', sans-serif;
     background-color: #ffffff;
 }
 
 .autocomplete * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .autocomplete .autocomplete__wrapper {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     z-index: 1;
 }
 
 .autocomplete .autocomplete__input {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     min-height: 48px;
     max-height: 48px;
-    padding: 3px 12px 5px 40px;
+    padding: 0;
+    padding-left: 40px;
+    padding-right: 12px;
     font-family: inherit;
     font-size: 13px;
     line-height: 19px;
@@ -52,17 +70,74 @@
     outline: 0;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    -webkit-transition: border-color 130ms ease-in-out,
+                -webkit-box-shadow 130ms ease-in-out;
+    transition: border-color 130ms ease-in-out,
+                -webkit-box-shadow 130ms ease-in-out;
+    -o-transition: border-color 130ms ease-in-out,
+                box-shadow 130ms ease-in-out;
     transition: border-color 130ms ease-in-out,
                 box-shadow 130ms ease-in-out;
+    transition: border-color 130ms ease-in-out,
+                box-shadow 130ms ease-in-out,
+                -webkit-box-shadow 130ms ease-in-out;
+}
+
+.autocomplete .autocomplete__input::-webkit-input-placeholder {
+    font-size: 12px;
+    font-style: italic;
+    color: #7c7c7c;
+    font-weight: 100;
+}
+
+.autocomplete .autocomplete__input::-moz-placeholder {
+    font-size: 12px;
+    font-style: italic;
+    color: #7c7c7c;
+    font-weight: 100;
+}
+
+.autocomplete .autocomplete__input:-ms-input-placeholder {
+    font-size: 12px;
+    font-style: italic;
+    color: #7c7c7c;
+    font-weight: 100;
+}
+
+.autocomplete .autocomplete__input::-ms-input-placeholder {
+    font-size: 12px;
+    font-style: italic;
+    color: #7c7c7c;
+    font-weight: 100;
 }
 
 .autocomplete .autocomplete__input::placeholder {
-    position: relative;
-    top: 2px;
-    left: -1px;
+    font-size: 12px;
     font-style: italic;
     color: #7c7c7c;
+    font-weight: 100;
+}
+
+.autocomplete .autocomplete__wrapper:hover .autocomplete__input::-webkit-input-placeholder {
+    font-style: italic;
+    color: #505050;
+}
+
+.autocomplete .autocomplete__wrapper:hover .autocomplete__input::-moz-placeholder {
+    font-style: italic;
+    color: #505050;
+}
+
+.autocomplete .autocomplete__wrapper:hover .autocomplete__input:-ms-input-placeholder {
+    font-style: italic;
+    color: #505050;
+}
+
+.autocomplete .autocomplete__wrapper:hover .autocomplete__input::-ms-input-placeholder {
+    font-style: italic;
+    color: #505050;
 }
 
 .autocomplete .autocomplete__wrapper:hover .autocomplete__input::placeholder {
@@ -72,7 +147,8 @@
 
 .autocomplete .autocomplete__wrapper:hover .autocomplete__input {
     border-color: #d3d3d3;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 .autocomplete .autocomplete__wrapper .autocomplete__input:focus {
@@ -81,6 +157,7 @@
 
 
 /* This input is required for JS part */
+
 .autocomplete .autocomplete__input.autocomplete__input_autotomplete {
     position: absolute;
     visibility: hidden;
@@ -94,32 +171,129 @@
 }
 
 .autocomplete .autocomplete__ico {
-    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
     position: absolute;
     top: 0;
     bottom: 0;
     margin: auto;
-    left: 0;
-    left: 13px;
     z-index: 2;
     cursor: pointer;
-    user-select: none;
-    fill: #505050;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    fill: #747474;
+    -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
 }
 
-.autocomplete .autocomplete__ico.autocomplete__search {
-    top: 5px;
-    left: 15px;
+.autocomplete .autocomplete__ico.autocomplete__ico_search {
+    top: 3px;
+    left: 16px;
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
 }
 
 .autocomplete .autocomplete__ico.autocomplete__ico_close {
     padding: 8px;
-    left: unset;
     right: 8px;
     fill: #959595;
+    -webkit-transition: all 0.13s ease-in-out;
+    -o-transition: all 0.13s ease-in-out;
     transition: all 0.13s ease-in-out;
 }
 
 .autocomplete .autocomplete__ico.autocomplete__ico_close:hover {
     fill: #323232;
+}
+
+/* Related to suggestions */
+
+.suggestions {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 0;
+    font-family: 'adobe-clean', sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-animation-name: fade-in;
+            animation-name: fade-in;
+    -webkit-animation-duration: 0.13s;
+            animation-duration: 0.13s;
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+.suggestions:empty {
+    display: none;
+}
+
+.suggestions * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.suggestions .suggestions__suggestion {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    min-height: 35px;
+    max-height: 35px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 35px;
+    font-weight: 400;
+    color: #505050;
+    text-decoration: none;
+    font-style: normal;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+}
+
+.suggestions .suggestions__suggestion:hover {
+    background-color: #f7f7f7;
+}
+
+.suggestions .suggestions__suggestion:nth-of-type(n+6) {
+    display: none;
+}
+
+.suggestions .suggestions__suggestion:hover::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #378ef0;
+}
+
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="autocomplete.css">
 </head>
 <body>
+    <!-- Autocomplete -->
     <div class="autocomplete">
         <div class="autocomplete__wrapper">
             <svg width="19" height="19" class="autocomplete__ico  autocomplete__ico_search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -16,11 +17,12 @@
             </svg>
             <input class="autocomplete__input  autocomplete__input_user-input" id="userinput" type="text" placeholder="Search Adobe Support">
             <input class="autocomplete__input  autocomplete__input_autotomplete" id="autocomplete" type="text" placeholder="Search Adobe Support">
-            <svg width="9" height="9" class="autocomplete__ico  autocomplete__ico_close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="19">
+            <svg width="9" height="9" class="autocomplete__ico  autocomplete__ico_close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <path d="M9.317 8.433L5.884 5l3.433-3.433a.625.625 0 0 0-.884-.884L5 4.116 1.567.683a.625.625 0 0 0-.884.884C.83 1.713 2.769 3.657 4.116 5L.683 8.433a.625.625 0 0 0 .884.884L5 5.884l3.433 3.433a.625.625 0 0 0 .884-.884z"></path>
             </svg>
         </div>
     </div>
+    <!-- Autocomplete suggestions -->
     <div id="suggestions" class="suggestions"></div>
 <script src="autocomplete.js"> </script>
 </body>

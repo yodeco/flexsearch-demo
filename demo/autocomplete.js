@@ -1,7 +1,6 @@
 (function(){
 
     var index = new FlexSearch({
-
         encode: "advanced",
         tokenize: "reverse",
         suggest: true,
@@ -16,15 +15,23 @@
     var suggestions = document.getElementById("suggestions");
     var autocomplete = document.getElementById("autocomplete");
     var userinput = document.getElementById("userinput");
+    var clearInput = document.querySelector(".autocomplete__ico_close");
 
     userinput.addEventListener("input", show_results, true);
     userinput.addEventListener("keyup", accept_autocomplete, true);
     suggestions.addEventListener("click", accept_suggestion, true);
+    clearInput.addEventListener("click", clearInputVal, true);
+
+    function clearInputVal(clickEvt) {
+        userinput.value = '';
+        show_results();
+    }
 
     function show_results(){
 
         const MAX_AUTOCOMPLETE_RESULTS = 5;
 
+        var className = 'suggestions__suggestion'
         var value = this.value;
         var results = index.search(value, 25);
         var entry, childs = suggestions.childNodes;
@@ -35,8 +42,9 @@
             entry = childs[i];
 
             if(!entry){
-
-                entry = document.createElement("div");
+                entry = document.createElement('a');
+                entry.href = '#';
+                entry.classList.add(className);
                 suggestions.appendChild(entry);
             }
 
